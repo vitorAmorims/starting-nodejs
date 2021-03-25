@@ -1,0 +1,14 @@
+{
+  "name": "desafio1",
+  "version": "0.0.1",
+  "description": "calcular o fatorial de um numero",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vitor Amorim <vtamorims@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
