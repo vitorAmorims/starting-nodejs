@@ -1,9 +1,33 @@
-const readline = require('readline-sync');
+console.log('Hi, welcome to Node for calculator IMC');
 
-function calcula_imc() {
+let inquirer = require('inquirer');
+
+var questions = [
+  {
+    type: 'input',
+    name: 'altura',
+    message: 'Qual sua altura (incluir .): '
+  },
+  {
+    type: 'input',
+    name: 'peso',
+    messsage: '\nDigite seu peso em kg(inckuir .): '
+  }
+]
+
+inquirer.prompt(questions).then(answers => {
+  console.log('\nDados obtidos: ');
+  console.log(JSON.stringify(answers, null, ' '));
+  calcula_imc(answers)
+
+})
+
+
+function calcula_imc(param) {
   console.log("Vamos calcular IMC - Indíce Massa corporal\n")
-  let peso = readline.questionFloat('\nDigite seu peso em Kg(se necessário use .)');
-  let altura = readline.questionFloat('\nDigite altura em metros,(se necessário use .)');
+  // console.log(typeof (param.altura)); string
+  let peso = parseFloat(param.peso);
+  let altura = parseFloat(param.altura);
   let imc = 0;
   imc = peso / (altura*altura);
   
@@ -22,5 +46,3 @@ function calcula_imc() {
   }
   return console.log(`\nO seu IMC é: ${imc.toFixed(2)}`)
 }
-
-calcula_imc()
